@@ -1,0 +1,131 @@
+﻿@model SistemaDeSaude.presentation.Models.VidaViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Vida</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.VidaId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataDeNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoCivil)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCivil)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF_CNPJ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CPF_CNPJ)
+        </dd>
+    </dl>
+    <h4>Endereço</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Logradouro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Logradouro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Numero)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Numero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Complemento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Complemento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Municipio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Municipio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.UF)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.UF)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.CEP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.CEP)
+        </dd>
+    </dl>
+    <h4>Telefone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone.Tipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone.Tipo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone.DDD)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone.DDD)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone.Numero)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone.Numero)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.VidaId }) |
+    @Html.ActionLink("Adicionar Beneficiado", "CadastrarBeneficiado", new { BeneficiarioId = Model.VidaId })|
+    @Html.ActionLink("Visualizar Beneficiados", "VisualizarBeneficiados", new { id = Model.VidaId })|
+    <a asp-action="Index">Listar Vidas</a>
+</div>

@@ -1,0 +1,47 @@
+﻿@model SistemaDeSaude.presentation.Models.VidaViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Deseja Deletar esse item?</h3>
+<div>
+    <h4>Vida</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataDeNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoCivil)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCivil)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VidaId" />
+        <input type="hidden" asp-for="Endereco.EnderecoId" />
+        <input type="hidden" asp-for="Telefone.TelefoneId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Listar Vidas</a>
+    </form>
+</div>

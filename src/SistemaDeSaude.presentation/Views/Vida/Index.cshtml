@@ -1,0 +1,106 @@
+﻿@model IEnumerable<SistemaDeSaude.presentation.Models.VidaViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Vidas";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <h2>Vidas</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <p>
+                <a asp-action="Create">Cadastrar Vida</a>
+            </p>
+        </div>
+        <div class="col-10">
+            <form asp-action="PesquisarNome" class="form-group">
+                <input type="text" id="PesquisaNome" name="PesquisaNome" />
+                <input type="submit" value="Pesquisar" class="btn btn-default" />
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCivil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone.DDD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone.Numero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeNascimento)
+            </td>
+            <td>
+                @(item.Sexo.Equals("M") ? "Masculino" : "Feminino")
+            </td>
+            <td>
+                @{ switch (item.EstadoCivil)
+                    {
+                        case "S":
+                            @("Solteiro(a)");
+                            break;
+                        case "C":
+                            @("Casado(a)");
+                            break;
+                        case "D":
+                            @("Divorciado(a)");
+                            break;
+                        case "V":
+                            @("Viúvo(a)");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            </td>
+            <td>
+                @(item.Telefone.Tipo.Equals("C") ? "Celular" : "Telefone")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone.DDD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone.Numero)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.VidaId }) |
+                @Html.ActionLink("visualizar", "Details", new { id = item.VidaId }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.VidaId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

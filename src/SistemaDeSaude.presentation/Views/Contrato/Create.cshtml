@@ -1,0 +1,51 @@
+﻿@model SistemaDeSaude.presentation.Models.ContratoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h4>Gerar Contrato</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataCadastro" class="control-label"></label>
+                <input asp-for="DataCadastro" class="form-control" type="date" value="@(DateTime.Now.ToShortDateString())"/>
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Validade" class="control-label"></label>
+                <input asp-for="Validade" class="form-control" type="date" value="@(DateTime.Now.ToShortDateString())"/>
+                <span asp-validation-for="Validade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="VidaId" asp-items="Model.Vidas" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="Plano.Prestadora.PrestadoraId" asp-items="Model.Plano.Prestadora.Prestadoras" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="Plano.PlanoId" asp-items="Model.Plano.Planos" class="form-control" style="display:none;"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            <script src="~/js/Contrato/Contrato.js"></script>   
+         }
+    }
